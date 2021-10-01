@@ -1,0 +1,23 @@
+Feature: logIn
+
+ Scenario Outline: LogIn to shop then add address.
+    Given Open browser with https://mystore-testlab.coderslab.pl/index.php
+    And SignIn button clicked
+    Then Input <email> and <password> in LogIn page
+    And Submit LogIn Data
+    Then Addresses button clicked
+    Then Create new address button clicked
+    Then Fill sheet with <alias>, <company>, <vat>, <address1>, <address2>, <postcode>, <city> and <phone>
+    And Submit sheet
+    And Check if address data is corect <firstName>, <lastName>, <alias>, <company>, <vat>, <address1>, <address2>, <postcode>, <city>, <country> and <phone>
+    Then Delete address
+    And Check if address is deleted
+    Then Quit browser
+
+
+   Examples:
+    |email           |password|alias|company|vat|address1|address2|postcode|city |phone      |firstName|lastName|country        |
+    |DamianFra@Fra.pl|12345   |Fra  |FraINC |50 |ul.A    |ul.B    |60-600  |CityA|500600700  |Damian   |Fra     |United Kingdom |
+
+
+

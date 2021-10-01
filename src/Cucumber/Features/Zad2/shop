@@ -1,0 +1,36 @@
+Feature: shop
+  Scenario Outline:
+    Given Open browser with https://mystore-testlab.coderslab.pl/index.php
+    And SignIn button clicked
+    Then Input <email> and <password> in LogIn page
+    And Submit LogIn Data
+    Then Search "Hummingbird Printed Sweater" in search box
+    And Add open product page
+    And Check if there is discount 20%
+    Then Select <size>
+    And Select <numbers> of products
+    Then Add products to shopping cart
+    And Go to checkout
+    Then Fill address information
+    And Continue to shipping method
+    Then Get "PrestaShop" Pick up in-store method
+    And Continue to payment
+    Then Select "Pay by check"
+    And Agree to the terms of service
+    And Click "order with an obligation to pay"
+    Then Take screenshot with order confirmation and total amount
+    Then Go to "Order history and details"
+    And Check if your order is there with status "Awaiting check paymen" and same total amount
+
+
+
+
+
+
+
+    Examples:
+    |size|numbers|
+    |S   |4      |
+    |M   |5      |
+    |L   |3      |
+    |XL  |2      |
