@@ -2,26 +2,27 @@ Feature: shop
   Scenario Outline:
     Given Open browser with https://mystore-testlab.coderslab.pl/index.php
     And SignIn button clicked
-    Then Input <email> and <password> in LogIn page
+    Then Input DamianFra@Fra.pl and 12345 in LogIn page
     And Submit LogIn Data
-    Then Search "Hummingbird Printed Sweater" in search box
-    And Add open product page
+    Then Search <product>> in search box
+    And Open product page
     And Check if there is discount 20%
-    Then Select <size>
-    And Select <numbers> of products
+    Then Select corect <size>
+    And Set products <numbers>
     Then Add products to shopping cart
     And Go to checkout
-    Then Fill address information
+    Then Fill address information with address:ul.x, postcode:60-600 and city:Xcity
     And Continue to shipping method
     Then Get "PrestaShop" Pick up in-store method
     And Continue to payment
-    Then Select "Pay by check"
+    Then Select "Pay by check" method
     And Agree to the terms of service
     And Click "order with an obligation to pay"
     Then Take screenshot with order confirmation and total amount
     Then Go to "Order history and details"
-    And Check if your order is there with status "Awaiting check paymen" and same total amount
-
+    And Check if your order is there with status "Awaiting check payment" and same total amount
+    Then Delete address information
+    Then Close browser
 
 
 
@@ -29,8 +30,8 @@ Feature: shop
 
 
     Examples:
-    |size|numbers|
-    |S   |4      |
-    |M   |5      |
-    |L   |3      |
-    |XL  |2      |
+    |size|numbers|product                    |
+    |M   |5      |Hummingbird Printed Sweater|
+    |L   |4      |Hummingbird Printed Sweater|
+    |XL  |3      |Hummingbird Printed Sweater|
+    |M   |9      |Hummingbird Printed T-Shirt|

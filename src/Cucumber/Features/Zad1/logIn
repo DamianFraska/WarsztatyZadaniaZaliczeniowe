@@ -3,7 +3,7 @@ Feature: logIn
  Scenario Outline: LogIn to shop then add address.
     Given Open browser with https://mystore-testlab.coderslab.pl/index.php
     And SignIn button clicked
-    Then Input <email> and <password> in LogIn page
+    Then Input DamianFra@Fra.pl and 12345 in LogIn page
     And Submit LogIn Data
     Then Addresses button clicked
     Then Create new address button clicked
@@ -16,8 +16,8 @@ Feature: logIn
 
 
    Examples:
-    |email           |password|alias|company|vat|address1|address2|postcode|city |phone      |firstName|lastName|country        |
-    |DamianFra@Fra.pl|12345   |Fra  |FraINC |50 |ul.A    |ul.B    |60-600  |CityA|500600700  |Damian   |Fra     |United Kingdom |
+    |alias|company|vat|address1|address2|postcode|city |phone      |firstName|lastName|country        |
+    |Fra  |FraINC |50 |ul.A    |ul.B    |60-600  |CityA|500600700  |Damian   |Fra     |United Kingdom |
 
 
 
