@@ -189,8 +189,10 @@ public class Shop {
     @And("Check if your order is there with status \"Awaiting check payment\" and same total amount")
     public void CheckOrderStatusAndTotalAmount() {
         String orderHistory = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/table/tbody/tr[1]")).getText();
+
         Assert.assertTrue("Text not found!", orderHistory.contains(totalAmount));
         Assert.assertTrue("Text not found!", orderHistory.contains(orderReference));
+        Assert.assertTrue("Text not found!", orderHistory.contains("Awaiting check payment"));
     }
 
     @Then("Delete address information")
